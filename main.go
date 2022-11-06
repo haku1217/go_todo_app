@@ -32,6 +32,8 @@ func main() {
 
 func run(ctx context.Context, l net.Listener) error {
 
+	_ := "hoge"
+
 	s := &http.Server{
 		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
