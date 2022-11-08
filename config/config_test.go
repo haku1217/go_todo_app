@@ -13,7 +13,6 @@ func Test_New(t *testing.T) {
 	got, err := New()
 	if err != nil {
 		t.Fatalf("cannot create confg: %v", err)
-
 	}
 
 	r, err := json.Marshal(got)
