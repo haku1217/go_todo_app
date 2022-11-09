@@ -22,7 +22,14 @@ ps: ## Check container status
 	docker compose ps
 
 test: ## Execute tests
-	go test -race -shuffle=on ./...
+	go test -v -race -shuffle=on ./...
+
+cover: ## Execute tests and Build Coverage File
+	go test -cover ./... -coverprofile=cover.out.tmp
+	cat cover.out.tmp | grep -v "**_mock.go"  > cover.out
+	rm cover.out.tmp
+	go tool cover -html=cover.out -o cover.html
+	open cover.html
 
 help: ## Show options
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \

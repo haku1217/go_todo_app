@@ -11,11 +11,6 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-func TestMain(m *testing.M) {
-	println("before all")
-	m.Run()
-}
-
 func Test_run(t *testing.T) {
 	t.Skip("リファクタリング中")
 	l, err := net.Listen("tcp", "localhost:0")
