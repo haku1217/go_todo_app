@@ -26,6 +26,7 @@ func Test_run(t *testing.T) {
 	in := "message"
 	url := fmt.Sprintf("http://%s/%s", l.Addr().String(), in)
 	t.Logf("try request to %q", url)
+	t.Log("test logs")
 	rsp, err := http.Get(url)
 	if err != nil {
 		t.Errorf("faild to get: %+v", err)

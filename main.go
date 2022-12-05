@@ -33,6 +33,8 @@ func run(ctx context.Context) error {
 	url := fmt.Sprintf("https://%s", l.Addr().String())
 	log.Printf("start with: %v", url)
 
+	_ := "hoge"
+
 	s := &http.Server{
 		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
